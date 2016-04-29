@@ -1,0 +1,8 @@
+<apex:page showHeader="false" sidebar="false" standardController="Contact">
+    
+    <c:GoogleMapMashup billingStreet="{!Contact.MailingStreet}" 
+                       billingCity="{!Contact.MailingCity}" billingState="{!Contact.MailingState}" 
+                       billingPostalCode="{!Contact.MailingPostalCode}" billingCountry="{!Contact.MailingCountry}"> 
+    </c:GoogleMapMashup>
+    
+</apex:page>
