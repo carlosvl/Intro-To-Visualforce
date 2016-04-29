@@ -1,0 +1,22 @@
+public with sharing class IntroVF_Demo1 {
+
+    public contact contactTemp {get; set;}
+    private Id accId; 
+
+    {
+        contactTemp = new Contact();
+        contactTemp.Decision_Maker_Level__c = 'High';
+    }
+    public IntroVF_Demo1(ApexPages.StandardController controller) {
+        accId = (id)controller.getRecord().Id;
+    }
+    
+    public List<Contact> getContacts()
+    {
+        return [select Name, Email, Phone, Decision_Maker_Level__c
+                FROM Contact
+                WHERE Decision_Maker_Level__c =: contactTemp.Decision_Maker_Level__c
+                    AND AccountId =: accId];
+    }
+
+}
