@@ -1,0 +1,28 @@
+<apex:page standardController="Account" extensions="IntroVF_Demo1" sidebar="false" >
+     <apex:sectionHeader subtitle="Account Search" title="Related Contacts"/>
+     <apex:form >
+     
+        <!-------------------------------- ACCOUNT DETAIL SECTION ------------------------->
+        <apex:pageBlock title="Account Details" >
+            <apex:pageBlockSection columns="2">
+                <apex:outputField value="{!Account.Name}"/>
+                <apex:outputField value="{!Account.Phone}"/>
+                <apex:inputField value="{!contactTemp.Decision_Maker_Level__c}" >
+                    <apex:actionSupport event="onchange" reRender="contactsBlock"/>
+                </apex:inputField>
+                <apex:outputField value="{!Account.AnnualRevenue}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <!-------------------------------- CONTACTS TABLE --------------------------------->
+        <apex:pageBlock id="contactsBlock" title="Related Contacts with {!contactTemp.Decision_Maker_Level__c} Decision Level">
+            <apex:pageBlockTable value="{!contacts}" var="thisCon">
+                <apex:column value="{!thisCon.Name}"/>
+                <apex:column value="{!thisCon.Email}"/>
+                <apex:column value="{!thisCon.Phone}"/>
+                <apex:column value="{!thisCon.Decision_Maker_Level__c}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>     
+        
+    </apex:form>
+</apex:page>
