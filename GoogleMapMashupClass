@@ -1,0 +1,9 @@
+public class GoogleMapMashup{
+
+    public String billingStreetVar {get; set;}
+    public String billingCityVar {get; set;}
+    public String billingPostalCodeVar {get; set;}
+    public String billingStateVar {get; set;}
+    public String billingCountryVar {get; set;}
+    public String recordNameVar {get; set;}
+}
